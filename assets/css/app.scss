@@ -1,0 +1,29 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import "~font-awesome/scss/font-awesome.scss";
+main > .container {
+  padding: 60px 15px 0;
+}
+.tema-color{
+  color:#0077aa;
+}
+.nav-link, .dropdown-item{
+  font-size: 80%;
+}
+.footer {
+  background-color: #f5f5f5;
+  color:#005cbf;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+button {
+  margin: 10px;
+}
+panel {
+  margin: 10px;
+}
+code {
+  font-size: 80%;
+}

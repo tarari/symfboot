@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('css/tagsinput') }}
+{% endblock %}
+{% block body %}
+    <div class="container">
+    <div class="container-fluid">
+    <div  class="row" id="search-results" ></div>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Latest posts</h1>
+
+    {% for post in posts %}
+
+
+            <article>
+
+            <div class="panel panel-default">
+                <a href="{{ path('app_post_show',{'id':post.id}) }}"><h5 class="panel-heading">{{ post.title }}</h5></a>
+
+                <p>{{ post.summary |raw }}</p>
+
+                <p class="panel-footer">{{ post.createdAt |date('D d/m/Y H:i') }}&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i></p>
+                {% for tag in post.tags %}
+                    <span class="badge badge-pill badge-primary">{{ tag }}</span>
+                {% endfor %}
+
+
+            </div>
+
+            </article>
+
+    {% endfor %}
+        </div>
+    </div>
+    <div class="container-fluid">
+
+    <div  class="pagination justify-content-center">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
+    </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+   {# {{ encore_entry_script_tags('js/search') }}#}
+{% endblock %}

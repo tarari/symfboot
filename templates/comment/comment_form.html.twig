@@ -1,0 +1,12 @@
+<div class="row">
+<fieldset>
+    {{form_start(form,{method: 'POST', action: path('app_comment_new', {'id': post.id})})}}
+    <div class="form-group">
+        {{form_label(form.comment)}}
+        {{form_widget(form.comment)}}
+        <button class="btn btn-primary pull-right" type="submit">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;Publish
+        </button>
+    </div>{{ form_end(form) }}
+</fieldset>
+</div>
