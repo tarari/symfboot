@@ -2,7 +2,7 @@ var Encore = require('@symfony/webpack-encore');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 Encore
     .setOutputPath('public/build/')
-    .setPublicPath('/build')
+    .setPublicPath('build')
     .cleanupOutputBeforeBuild()
     .autoProvidejQuery()
     .autoProvideVariables({

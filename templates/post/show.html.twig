@@ -5,33 +5,34 @@
 
 {% block body %}
     <div class="container">
-    <div class="container-fluid">
-        <div class="card">
-
-        <h2 class="tema-color">{{ post.title }}</h2>
+    <div class="col">
+        <h2 class="tema-color text-center">{{ post.title }}</h2>
         <p>{{ post.contents | raw }}</p>
-        </div>
-    </div>
 
+    </div>
+    <div class="row">
     {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user == post.user %}
     <p>
         <a href="{{ path("app_post_edit",{'id':post.id}) }}"><button class="btn btn-secondary" >Edit</button></a>
     </p>
     {% endif %}
+    </div>
+        <div class="row">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {% if not post.comments.empty %}
-            Comments <span class="badge">{{post.comments|length}}</span>
+           <p> Comments <span class="badge badge-info">{{post.comments|length}}</span></p>
             {% for comment in post.comments %}
-                <div class="panel panel-default"><p><mark>by {{comment.user.username|capitalize}}</mark>
+                <div class="row"><p><mark>by {{comment.user.username|capitalize}}</mark>
                         {% if comment.user.avatar %}
                             <img class="img-circle" width="30px" src="{{ asset('uploads/pictures/' ~ comment.user.picture) }}"></img>
                         {% endif %}
                     </p>
-                    <p>{{comment.comment}}</p>
-                    <div class="panel panel-footer"><strong>Commented at:</strong><em> {{comment.createdAt|date('d-m-Y')}}</em></div>
-                </div>
+                    <p class="row">{{comment.comment}}</p>
+                    <div class="row"><strong>Commented at:</strong><em> {{comment.createdAt|date('d-m-Y')}}</em></div>
+
 
             {% endfor %}
+            </div>
         {% endif %}
     {% endif %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -44,4 +45,6 @@
         </p>
     {% endif %}
     </div>
+    </div>
+
 {% endblock %}

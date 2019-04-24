@@ -15,17 +15,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class CommentController extends AbstractController
 {
+
     /**
-     * @Route("/comment", name="comment")
-     */
-    public function index()
-    {
-        return $this->render('comment/index.html.twig', [
-            'controller_name' => 'CommentController',
-        ]);
-    }
-    /**
-     * @Route("/comment/{id}/new", name="app_gitcomment_new")
+     * @Route("/comment/{id}/new", name="app_comment_new")
      * @Method("POST")
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      *
