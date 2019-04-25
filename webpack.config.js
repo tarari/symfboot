@@ -1,8 +1,11 @@
 var Encore = require('@symfony/webpack-encore');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+//var build=Encore.isProduction() ? '/build' : '/symfboot/build';
 Encore
     .setOutputPath('public/build/')
-    .setPublicPath('build')
+    // aquesta línia hauria de començar per / o per http:// però en shared hosting
+    // no funciona
+    .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .autoProvidejQuery()
     .autoProvideVariables({

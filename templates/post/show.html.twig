@@ -17,24 +17,24 @@
     </p>
     {% endif %}
     </div>
-        <div class="row">
+
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {% if not post.comments.empty %}
            <p> Comments <span class="badge badge-info">{{post.comments|length}}</span></p>
             {% for comment in post.comments %}
-                <div class="row"><p><mark>by {{comment.user.username|capitalize}}</mark>
+                <p><mark>by {{comment.user.username|capitalize}}</mark>
                         {% if comment.user.avatar %}
                             <img class="img-circle" width="30px" src="{{ asset('uploads/pictures/' ~ comment.user.picture) }}"></img>
                         {% endif %}
                     </p>
-                    <p class="row">{{comment.comment}}</p>
-                    <div class="row"><strong>Commented at:</strong><em> {{comment.createdAt|date('d-m-Y')}}</em></div>
+                    <p >{{comment.comment}}</p>
+                    <strong>Commented at:</strong><em> {{comment.createdAt|date('d-m-Y')}}</em></div>
 
 
             {% endfor %}
-            </div>
         {% endif %}
     {% endif %}
+
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {{render(controller('App\\Controller\\CommentController::commentForm',{'id': post.id}))}}
     {% else %}
@@ -44,7 +44,6 @@
             </a>
         </p>
     {% endif %}
-    </div>
-    </div>
 
+</div>
 {% endblock %}
