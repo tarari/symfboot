@@ -5,7 +5,7 @@ Encore
     .setOutputPath('public/build/')
     // aquesta línia hauria de començar per / o per http:// però en shared hosting
     // no funciona
-    .setPublicPath('/build')
+    .setPublicPath(process.env.ENCORE_PUBLIC_PATH || '/build')
     .cleanupOutputBeforeBuild()
     .autoProvidejQuery()
     .autoProvideVariables({
