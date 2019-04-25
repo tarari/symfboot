@@ -2,11 +2,11 @@ var Encore = require('@symfony/webpack-encore');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 //var build=Encore.isProduction() ? '/build' : '/symfboot/build';
 if (Encore.isProduction()){
-    var publicPath='/symfboot/build';
+    var publicPath='/symfboot/build/';
 } else{
-    publicPath='/build';
+    publicPath='/build/';
 }
-var publicPath = Encore.isProduction() ? '/symfboot/build' : '/build';
+//var publicPath = Encore.isProduction() ? '/symfboot/build' : '/build';
 
 Encore
     .setOutputPath('public/build/')
