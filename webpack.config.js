@@ -5,7 +5,7 @@ Encore
     .setOutputPath('public/build/')
     // aquesta línia hauria de començar per / o per http:// però en shared hosting
     // no funciona
-    .setPublicPath(process.env.ENCORE_PUBLIC_PATH || '/build')
+    .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .autoProvidejQuery()
     .autoProvideVariables({
@@ -27,6 +27,7 @@ Encore
     ]))
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
+    .setManifestKeyPrefix('build/')
 ;
 
 module.exports = Encore.getWebpackConfig();
