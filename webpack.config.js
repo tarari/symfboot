@@ -1,33 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 //var build=Encore.isProduction() ? '/build' : '/symfboot/build';
-var publicPath = '/build';
-
-if (!Encore.isProduction()) {
-    require('dotenv').config({
-        path: './.webpack.env',
-    });
-
-    if ('undefined' !== typeof process.env.ENCORE_PUBLIC_PATH) {
-        publicPath = process.env.ENCORE_PUBLIC_PATH;
-    } else {
-        const guessFromPaths = [
-            '/usr/local/var/www/htdocs',
-            '/usr/local/var/www',
-            process.env.HOME + '/Sites',
-        ];
-
-        for (var i = 0; i < guessFromPaths.length; i++) {
-            var path = guessFromPaths[i];
-
-            if (0 === __dirname.indexOf(path)) {
-                path = __dirname.split(path);
-                publicPath = path[1] + '/public/build';
-                break;
-            }
-        }
-    }
-}
+var publicPath = Encore.isProduction() ? '/symfboot/build' : '/build';
 
 Encore
     .setOutputPath('public/build/')
