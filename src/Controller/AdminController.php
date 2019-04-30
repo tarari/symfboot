@@ -11,8 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Knp\Component\Pager\PaginatorInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Knp\Bundle\PaginatorBundle\Pagination;
+use App\Form\PostEditType;
 
 use App\Form\UserEditType;
 
@@ -44,6 +43,29 @@ class AdminController extends AbstractController
         return $this->render('admin/posts.html.twig',['posts'=>$posts]);
 
     }
+
+    /**
+     * @param Request $request
+     * @param Post $post
+     * @Route("/admin/post/{id}/edit",name="app_admin_post_edit")
+     */
+    public function editPost(Request $request,Post $post){
+        //form edit user
+        $form=$this->createForm(PostEditType::class,$post);
+        $post=$form->getData();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $post->setModifiedAt(new \DateTime());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($post);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_admin_posts');
+        }
+        return $this->render('admin/post_edit.html.twig',[
+            'form'=>$form->createView(),
+            'post'=>$post
+        ]);
+    }
     /**
      * @Route("/admin/user",name="app_admin_users")
      */
@@ -70,21 +92,22 @@ class AdminController extends AbstractController
      * @Route("/admin/user/{id}/edit",name="app_admin_user_edit")
      *
      */
-    public function editUser(Request $request, User $user,  UserPasswordEncoderInterface $passwordEncoder){
+    public function editUser(Request $request, User $user,  UserPasswordEncoderInterface $passwordEncoder)
+    {
         //form edit user
-        $form=$this->createForm(UserEditType::class,$user);
-        $user=$form->getData();
+        $form = $this->createForm(UserEditType::class, $user);
+        $user = $form->getData();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($form->getData()->getPlainPassword()){
-                $password=$passwordEncoder->encodePassword($user, $user->getplainPassword());
+            if ($form->getData()->getPlainPassword()) {
+                $password = $passwordEncoder->encodePassword($user, $user->getplainPassword());
                 $user->setPassword($password);
             }
             //upload file
             $file = $user->getAvatar();
-            if($file){
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            if ($file) {
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
                 // moves the file to the directory where brochures are stored
                 $file->move(
                     $this->getParameter('pictures_directory'),
@@ -100,11 +123,30 @@ class AdminController extends AbstractController
             // do anything else you need here, like send an email
             return $this->redirectToRoute('app_admin_users');
         }
-        return $this->render('admin/user_edit.html.twig',[
-            'form'=>$form->createView(),
-            'user'=>$user
+        return $this->render('admin/user_edit.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user
         ]);
+    }
 
+    /**
+     * @Route("/admin/post/{id}/remove",name="app_admin_post_remove")
+     */
+    public function removePost(Post $post){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($post);
+        $entityManager->flush();
+        return $this->redirectToRoute("app_admin_posts");
+    }
+
+    /**
+     * @Route("/admin/user/{id}/remove",name="app_admin_user_remove")
+     */
+    public function removeUser(User $user){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
+        return $this->redirectToRoute("app_admin_users");
         }
     /**
      * @return string

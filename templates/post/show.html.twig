@@ -19,29 +19,29 @@
             </p>
             {% endif %}
 
-
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 {% if not post.comments.empty %}
-                   <p> Comments <span class="badge badge-info">{{post.comments|length}}</span></p>
+                   <p class="small"> Comments <span class="badge badge-info">{{post.comments|length}}</span></p>
                     {% for comment in post.comments %}
-                        <p><mark>by {{comment.user.username|capitalize}}</mark>
+                        <p class="small"><mark>by {{comment.user.username|capitalize}}</mark>
                                 {% if comment.user.avatar %}
                                     <img class="img-circle" width="30px" src="{{ asset('uploads/pictures/' ~ comment.user.avatar) }}"></img>
                                 {% endif %}
                             </p>
-                            <p >{{comment.comment}}</p>
+                            <p class="small">{{comment.comment}}</p>
                             <strong>Commented at:</strong><em> {{comment.createdAt|date('d-m-Y')}}</em></div>
-
-
                     {% endfor %}
                 {% endif %}
             {% endif %}
 
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="card-footer">
                 {{render(controller('App\\Controller\\CommentController::commentForm',{'id': post.id}))}}
+                </div>
             {% else %}
-            <p><small> If you want to <a href="{{ path('app_login') }}">comment</a></small></p>
-        {% endif %}
+                <p><small> If you want to comment <a href="{{ path('app_login') }}">Sign in</a></small></p>
+            {% endif %}
+        </div>
         </div>
     </div>
 </div>

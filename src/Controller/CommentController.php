@@ -11,14 +11,13 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
 
 class CommentController extends AbstractController
 {
 
     /**
-     * @Route("/comment/{id}/new", name="app_comment_new")
-     * @Method("POST")
+     * @Route("/comment/{id}/new", name="app_comment_new",methods={"POST"})
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      *
      */

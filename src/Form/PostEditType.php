@@ -23,8 +23,8 @@ class PostEditType extends AbstractType
                     'class'=>'form-control'
                 ]
             ])
-            ->add('author',TextType::class,[
-                'label'=>'Author',
+            ->add('summary',TextareaType::class,[
+                'label'=>'Summary',
                 'attr'=>['class'=>'form-control']
             ])
             ->add('contents', TextareaType::class, [
@@ -32,16 +32,10 @@ class PostEditType extends AbstractType
                 'required'=>false,
                 'attr'=>[
                     'id'=>'editor',
-                    'class'=>'form-control tinymce'
+                    'class'=>'form-control mceditor tinymce'
                 ]
             ])
-            ->add('createdAt', DateTimeType::class, [
-                'label' => 'Created at',
-                'widget'=>'single_text',
-                'attr'=>[
-                    'class'=>'form-control js-datepicker '
-                ]
-            ])
+
             ->add('tags', TagsInputType::class, [
                 'label' => 'Tags',
 
@@ -50,8 +44,7 @@ class PostEditType extends AbstractType
                     'data-role'=>'tagsinput',
                     'class'=>'form-control'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

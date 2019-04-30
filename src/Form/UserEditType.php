@@ -46,6 +46,7 @@ class UserEditType extends AbstractType
             ])
             ->add('avatar',FileType::class,
                 [ 'required'=>false,
+                    'data_class'=>null,
                     'attr'=>['class'=>'form-control']])
 
         ;

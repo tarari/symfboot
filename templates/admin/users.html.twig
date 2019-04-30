@@ -8,13 +8,13 @@
         {% for user in users %}
             <tr><td>{{ user.id }}</td><td>{{ user.username }}</td><td>{{ user.email }}</td>
                 <td><a href="{{ path('app_admin_user_edit',{'id':user.id}) }}"><button class="btn btn-sm btn-primary">Edit</button></a></td>
-                <td><a href=""><button class="btn btn-sm btn-danger">Remove</button></a></td></tr>
+                <td><a href="{{ path('app_admin_user_remove',{'id':user.id}) }}"><button class="btn btn-sm btn-danger">Remove</button></a></td></tr>
         {% endfor %}
     </table>
 </div>
     <div class="container-fluid">
 
-        <div  class="pagination justify-content-center">
+        <div  class="pagination justify-content-center small">
             {{ knp_pagination_render(users) }}
         </div>
 
