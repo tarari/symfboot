@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57db0d94-95f9-4077-8110-d3c73d29831b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/post_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostEditType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostEditType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserEditType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserEditType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/posts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/posts.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/users.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/users.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding>
                 <element signature="e#425#444#0#Twig" expanded="true" />
                 <element signature="e#566#587#0#Twig" expanded="true" />
@@ -170,14 +157,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/CommentController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="44" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="44" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#57#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -240,7 +224,6 @@
         <option value="$PROJECT_DIR$/.env.local" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/templates/comment/comment_form.html.twig" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/Entity/Post.php" />
         <option value="$PROJECT_DIR$/assets/css/app.scss" />
@@ -257,6 +240,7 @@
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/templates/admin/posts.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/users.html.twig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -561,12 +545,12 @@
       <workItem from="1556390000588" duration="854000" />
       <workItem from="1556545450290" duration="5310000" />
       <workItem from="1556563789946" duration="444000" />
-      <workItem from="1556630261641" duration="6173000" />
+      <workItem from="1556630261641" duration="6299000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124251000" />
+    <option name="totallyTimeSpent" value="124377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="55" width="1280" height="628" extended-state="0" />
@@ -586,7 +570,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3283582" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4806139" weight="0.3283582" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4806139" visible="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5177706" side_tool="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3283582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -716,13 +700,6 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-179" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env.local">
@@ -992,11 +969,18 @@
     <entry file="file://$PROJECT_DIR$/templates/admin/users.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding>
             <element signature="e#425#444#0#Twig" expanded="true" />
             <element signature="e#566#587#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
