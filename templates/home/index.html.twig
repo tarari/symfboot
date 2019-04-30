@@ -6,33 +6,33 @@
     {{ encore_entry_link_tags('css/tagsinput') }}
 {% endblock %}
 {% block body %}
+
     <div class="container">
-    <div class="container-fluid">
     <div  class="row" id="search-results" ></div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
         <h1>Latest posts</h1>
-        <div class="card-columns">
+        <div class="col">
 
-    {% for post in posts %}
-            <div class="card bg-light">
-                <div class="card-header text-center">
-                <h5><a href="{{ path('app_post_show',{'id':post.id}) }}">{{ post.title }}</a></h5>
-                <div class="card-body">
-                <p>{{ post.summary |raw }}</p>
+        {% for post in posts %}
+                <div class="card bg-light">
+                    <div class="card-header text-center">
+                    <h5><a href="{{ path('app_post_show',{'id':post.id}) }}">{{ post.title }}</a></h5>
+                    <div class="card-body">
+                    <p>{{ post.summary |raw }}</p>
+                    </div>
+                    <div class="card-footer">{{ post.createdAt |date('D d/m/Y H:i') }}&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
+                    {% for tag in post.tags %}
+                        <span class="badge badge-pill badge-primary">{{ tag }}</span>
+                    {% endfor %}
+                    </div>
+
                 </div>
-                <div class="card-footer">{{ post.createdAt |date('D d/m/Y H:i') }}&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
-                {% for tag in post.tags %}
-                    <span class="badge badge-pill badge-primary">{{ tag }}</span>
-                {% endfor %}
+
                 </div>
 
-            </div>
-
-            </div>
-
-    {% endfor %}
+        {% endfor %}
 
     </div>
     <div class="container-fluid">

@@ -65,8 +65,11 @@
         </nav>
     </header>
     <main role="main" class="flex-shrink-0">
+        <div class="container">
+            {% block body %}  >
 
-            {% block body %} {% endblock %}
+            {% endblock %}
+        </div>
     </main>
     <div class="container-fluid">
         <div id="fmessage">

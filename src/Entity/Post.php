@@ -54,7 +54,7 @@ class Post
     private $modifiedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
      */
     private $user;
 

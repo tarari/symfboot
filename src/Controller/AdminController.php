@@ -10,6 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Knp\Bundle\PaginatorBundle\Pagination;
+
 use App\Form\UserEditType;
 
 /**
@@ -23,20 +27,41 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/post",name="app_admin_posts")
      */
-    public function posts(){
+    public function posts(Request $request, PaginatorInterface $paginator){
         //list all posts in a table
-        $posts=$this->getDoctrine()->getRepository(Post::class)->findAll();
-        return $this->render('admin/posts.html.twig',[
-            'posts'=>$posts
-        ]);
+        $em=$this->getDoctrine()->getManager();
+        $postRepository=$em->getRepository(Post::class);
+        $allPostsQuery = $postRepository->createQueryBuilder('p')
+            ->getQuery();
+        $posts = $paginator->paginate(
+        // Doctrine Query, not results
+            $allPostsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            3
+        );
+        return $this->render('admin/posts.html.twig',['posts'=>$posts]);
 
     }
     /**
      * @Route("/admin/user",name="app_admin_users")
      */
-    public function users(){
+    public function users(Request $request,PaginatorInterface $paginator){
         //list all users in a table
-        $users=$this->getDoctrine()->getRepository(User::class)->findAll();
+        //$users=$this->getDoctrine()->getRepository(User::class)->findAll();
+        $em=$this->getDoctrine()->getManager();
+        $userRepository=$em->getRepository(User::class);
+        $allUsersQuery = $userRepository->createQueryBuilder('u')
+            ->getQuery();
+        $users = $paginator->paginate(
+        // Doctrine Query, not results
+            $allUsersQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            2
+        );
         return $this->render('admin/users.html.twig',[
             'users'=>$users
         ]);

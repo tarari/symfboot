@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="container-fluid">
+    <div class="container">
+        <div class="col">
         <h2>Admin Posts</h2>
-    <table class="table table-striped table-responsive">
+        <table class="table table-striped ">
         <thead>
-        <th>Id</th><th>Title</th><th>User</th><th>Actions</th><th></th></thead>
-    {% for post in posts %}
-        <tr><td>{{ post.id }}</td><td>{{ post.title }}</td><td>{{ post.user }}</td>
+            <th>Id</th><th>Title</th><th>User</th><th>Actions</th><th></th></thead>
+            {% for post in posts %}
+            <tr><td>{{ post.id }}</td><td >{{ post.title }}</td><td>{{ post.user }}</td>
             <td><a href=""><button class="btn btn-sm btn-secondary">Edit</button></a></td>
             <td><a href=""><button class="btn btn-sm btn-danger">Remove</button></a></td></tr>
-    {% endfor %}
+        {% endfor %}
     </table>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div  class="pagination justify-content-center">
+            {{ knp_pagination_render(posts) }}
+        </div>
+
     </div>
 {% endblock %}
