@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Knp\Bundle\PaginatorBundle\Pagination;
 
-
 class HomeController extends AbstractController
 {
     /**
@@ -58,7 +57,7 @@ class HomeController extends AbstractController
                 'title' => htmlspecialchars($post->getTitle()),
                 'date' => $post->getCreatedAt()->format('d M, Y'),
                 'author' => htmlspecialchars($post->getUser()),
-                'url' => $this->generateUrl('post_show', ['id' => $post->getId()]),
+                'url' => $this->generateUrl('app_post_showc', ['id' => $post->getId()]),
             ];
         }
 

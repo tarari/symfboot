@@ -11,6 +11,7 @@ Encore
     .autoProvideVariables({
         "jQuery.tagsinput": "bootstrap-tagsinput"
     })
+    .disableSingleRuntimeChunk()
     .enableSassLoader()
     .enableVersioning()
     .addEntry('js/app', './assets/js/app.js')

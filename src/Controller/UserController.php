@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Form\UserEditType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -93,6 +94,47 @@ class UserController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/profile/{id}",name="app_user_profile")
+     */
+    public function editUser(Request $request, User $user,  UserPasswordEncoderInterface $passwordEncoder)
+    {
+        //form edit user
+        $form = $this->createForm(UserEditType::class, $user);
+        $user = $form->getData();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->getData()->getPlainPassword()) {
+                $password = $passwordEncoder->encodePassword($user, $user->getplainPassword());
+                $user->setPassword($password);
+            }
+            //upload file
+            $file = $user->getAvatar();
+            if ($file) {
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                // moves the file to the directory where brochures are stored
+                $file->move(
+                    $this->getParameter('pictures_directory'),
+                    $fileName
+                );
+                //updates property to store picture
+                $user->setAvatar($fileName);
+            }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            // do anything else you need here, like send an email
+            return $this->redirectToRoute('app_admin_users');
+        }
+        return $this->render('user/profile.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user
+        ]);
+    }
+
     /**
      * @return string
      */

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-sm-6">
+            <h2>Edit {{ app.user.username }}</h2>
+        <hr/>
+
+            {{ form_start(form) }}
+            <div class="form_row">
+                {{ form_row(form.username) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.plainPassword) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.avatar) }}
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary "><i class="fa fa-save" aria-hidden="true"></i>&nbsp;Modify</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
